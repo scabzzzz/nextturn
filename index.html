@@ -8,8 +8,9 @@
     :root {
       --blue: #0074cc;
       --light-grey: #f2f4f7;
-      --text-dark: #333;
-      --text-grey: #666;
+      --text-dark: #222;
+      --text-grey: #555;
+      --field-radius: 6px;
     }
 
     body {
@@ -22,69 +23,79 @@
     .container {
       display: flex;
       flex-wrap: wrap;
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 40px 20px;
+      max-width: 960px;
+      margin: 60px auto;
       background: white;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      border-radius: 10px;
+      overflow: hidden;
     }
 
     .left {
       flex: 1 1 300px;
-      padding: 20px;
+      background-color: #fff;
       text-align: center;
+      padding: 40px 20px;
     }
 
     .left img {
-      max-width: 600px; /* 300% of original ~200px */
-      width: 100%;
+      max-width: 300px;
+      width: 80%;
       height: auto;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
 
     .left p {
-      margin: 6px 0;
+      margin: 8px 0;
+      font-size: 15px;
       color: var(--text-grey);
-      font-size: 16px;
     }
 
     .right {
       flex: 1 1 400px;
-      padding: 20px;
+      padding: 40px 30px;
+      background-color: white;
     }
 
     .right h2 {
       font-size: 22px;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
       color: var(--blue);
     }
 
     form label {
       display: block;
-      margin-top: 10px;
-      font-weight: bold;
+      margin-top: 12px;
+      margin-bottom: 5px;
+      font-size: 14px;
+      color: var(--text-dark);
     }
 
     form input,
     form textarea {
       width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
+      padding: 10px 12px;
       font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: var(--field-radius);
+      box-sizing: border-box;
+    }
+
+    form textarea {
+      resize: vertical;
+      min-height: 120px;
     }
 
     form button {
-      margin-top: 15px;
-      padding: 10px 20px;
+      margin-top: 20px;
+      padding: 12px 24px;
       background-color: var(--blue);
       color: white;
       border: none;
-      border-radius: 5px;
-      font-size: 16px;
+      border-radius: var(--field-radius);
+      font-size: 15px;
       cursor: pointer;
+      transition: background 0.2s ease-in-out;
     }
 
     form button:hover {
@@ -94,15 +105,16 @@
     @media (max-width: 768px) {
       .container {
         flex-direction: column;
-        text-align: center;
+        margin: 20px;
       }
 
+      .left,
       .right {
-        padding-top: 0;
+        padding: 30px 20px;
       }
 
       .left img {
-        max-width: 90%;
+        max-width: 80%;
       }
     }
   </style>
@@ -119,14 +131,14 @@
     <div class="right">
       <h2>Contact Us</h2>
       <form action="https://formspree.io/f/xeogqvjq" method="POST">
-        <label for="name">Name:</label>
+        <label for="name">Name</label>
         <input type="text" id="name" name="name" required />
 
-        <label for="email">Email:</label>
+        <label for="email">Email</label>
         <input type="email" id="email" name="_replyto" required />
 
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required></textarea>
 
         <button type="submit">Send Message</button>
       </form>
