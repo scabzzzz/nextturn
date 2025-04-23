@@ -5,86 +5,133 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Next Turn LLC</title>
   <style>
+    :root {
+      --blue: #0074cc;
+      --light-grey: #f2f4f7;
+      --text-dark: #333;
+      --text-grey: #666;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
       margin: 0;
-      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--light-grey);
+      color: var(--text-dark);
     }
+
     .container {
-      max-width: 800px;
-      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+
+    .left {
+      flex: 1 1 300px;
       padding: 20px;
-      background: #fff;
-    }
-    .logo {
       text-align: center;
-      margin-bottom: 20px;
     }
-    .logo img {
+
+    .left img {
       max-width: 200px;
       height: auto;
+      margin-bottom: 20px;
     }
-    h1 {
-      color: #0074cc;
-      text-align: center;
+
+    .left h1 {
+      font-size: 28px;
+      color: var(--blue);
     }
-    p {
-      color: #666;
-      text-align: center;
+
+    .left p {
+      margin: 6px 0;
+      color: var(--text-grey);
+      font-size: 16px;
     }
-    form {
-      margin-top: 30px;
+
+    .right {
+      flex: 1 1 400px;
+      padding: 20px;
     }
-    label {
+
+    .right h2 {
+      font-size: 22px;
+      margin-bottom: 15px;
+      color: var(--blue);
+    }
+
+    form label {
       display: block;
       margin-top: 10px;
-      color: #0074cc;
+      font-weight: bold;
     }
-    input, textarea {
+
+    form input,
+    form textarea {
       width: 100%;
       padding: 10px;
       margin-top: 5px;
       border: 1px solid #ccc;
-      border-radius: 4px;
+      border-radius: 5px;
+      font-size: 14px;
     }
-    button {
+
+    form button {
       margin-top: 15px;
       padding: 10px 20px;
-      background-color: #0074cc;
-      color: #fff;
+      background-color: var(--blue);
+      color: white;
       border: none;
-      border-radius: 4px;
+      border-radius: 5px;
+      font-size: 16px;
       cursor: pointer;
     }
-    button:hover {
+
+    form button:hover {
       background-color: #005fa3;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .right {
+        padding-top: 0;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="Next Turn LLC">
+    <div class="left">
       <img src="nextturn.jpg" alt="Next Turn LLC" />
+      <h1>Next Turn LLC</h1>
+      <p>500 Sun Valley Dr STE A1D</p>
+      <p>Roswell, GA 30076</p>
+      <p>📞 p: 470-994-8110</p>
+      <p>📱 m: 601-906-1573</p>
     </div>
-    <h1>Next Turn LLC</h1>
-    <p>500 Sun Valley Dr Roswell, GA 30076</p>
-    <p>p: 470-994-8110 | m: 601-906-1573</p>
+    <div class="right">
+      <h2>Contact Us</h2>
+      <form action="https://formspree.io/f/your-form-id" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
 
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="_replyto" required />
 
-    <form action="https://formspree.io/f/your-form-id" method="POST">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required />
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="_replyto" required />
-
-      <label for="message">Message:</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
-
-      <button type="submit">Send Message</button>
-    </form>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
   </div>
 </body>
 </html>
